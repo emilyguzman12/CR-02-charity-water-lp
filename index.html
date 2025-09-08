@@ -1,47 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charity Water Landing Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Charity Water</title>
+  <style>
+    /* Basic body styles */
+    body {
+      margin: 0;
+      font-family: 'Proxima Nova', Arial, sans-serif;
+      background-color: #f5f5f5;
+      overflow-x: hidden;
+    }
+
+    /* Header styles */
+    header {
+      background-color: white;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .logo {
+      max-width: 200px;
+      height: auto;
+    }
+
+    /* Hero section styles */
+    .hero {
+      background-color: #FFC907;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .hero img.hero-img {
+      width: 350px;
+      max-width: 90%;
+      height: auto;
+      border-radius: 12px;
+      border: 3px solid black;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      /* Make images responsive */
+      box-sizing: border-box;
+    }
+
+    .text-box {
+      max-width: 600px;
+      flex: 1;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      box-sizing: border-box;
+    }
+
+    .text-box h1 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 20px;
+    }
+
+    .text-box p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background-color: #000;
+      color: #fff;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+    /* Only target the Donate Now button inside .text-box */
+    .text-box .btn {
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+    }
+
+    .text-box .btn:hover {
+      background: #2E9DF7;   /* Change to a bright blue */
+      color: #000;           /* Change text to black */
+      transform: translateY(-2px) scale(1.05); /* Move up and slightly enlarge */
+    }
+
+    /* Subbrands section styles */
+    .subbrands {
+      background-color: white;
+      padding: 60px 20px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .subbrand-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 150px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
+
+    .subbrand-item img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .subbrand-item span {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Responsive styles for tablets */
+    @media (max-width: 1200px) {
+      .hero img.hero-img { width: 300px; }
+      .text-box h1 { font-size: 32px; }
+      .text-box p { font-size: 16px; }
+      .subbrands { gap: 40px; }
+    }
+
+    /* Responsive styles for mobile devices */
+    @media (max-width: 900px) {
+      .hero-content { flex-direction: column; }
+      .text-box { order: -1; margin-bottom: 25px; }
+      .hero img.hero-img { width: 80%; }
+      .subbrands { gap: 20px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 30px 5px; }
+      .hero img.hero-img { width: 100%; }
+      .text-box h1 { font-size: 24px; }
+      .text-box p { font-size: 14px; }
+      .btn { padding: 10px 18px; font-size: 14px; }
+      .subbrands { flex-direction: column; align-items: center; }
+      .subbrand-item { max-width: 90vw; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Hero Section: This is the main banner at the top of the page -->
+  <header>
+    <img src="img/cw_logo-2.png" alt="Charity Water Logo" class="logo">
+  </header>
+
+  <main>
     <section class="hero">
-        <!-- Main headline -->
-        <h1>Clean Water for Everyone</h1>
-        <!-- Subheadline -->
-        <p>Join us in bringing safe, clean water to communities in need.</p>
-    </section>
-
-    <!-- Story Section: This tells the story of the nonprofit -->
-    <section class="story">
-        <h2>Our Story</h2>
-        <p>
-         
-    </section>
-
-    <!-- Real-World Impact Story Section -->
-    <section class="impact-story">
-        <!-- Section headline -->
-        <h2>Real Impact: Meet Amina</h2>
-        <!-- Container for image and text -->
-        <div class="impact-content">
-            <!-- Impact image -->
-            <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" alt="Amina smiling with clean water" class="impact-image">
-            <!-- Impact story text -->
-            <p>
-                Amina used to walk miles every day to collect water for her family. Thanks to your support, her village now has a clean water well. Amina can go to school and her family is healthier and happier.
-            </p>
+      <div class="hero-content" id="hero-container">
+        <img src="img/Nepal_2022_CG-2081.jpg" alt="Community Water Access" class="hero-img" id="left-img">
+        <div class="text-box">
+          <h1>Turn Your Passion Into Policy</h1>
+          <p>Every donation powers programs, fuels advocacy, and supports frontline changemakers fighting for water justice. Together, we’re building a future where clean water is accessible to all communities — and every act of care and your voice brings us closer to creating smiles.</p>
+          <a href="#" class="btn">Donate Now</a>
         </div>
+        <img src="img/Madagascar_2019_CG-3793.jpg" alt="Smiling Child with Water" class="hero-img" id="right-img">
+      </div>
     </section>
 
-    <!-- Call-to-Action Section: This encourages visitors to take action -->
-    <section class="call-to-action">
-        <h2>Make a Difference</h2>
-        <p>Your support can help save lives. Every donation brings us closer to a world with clean water for all.</p>
-        <a href="#" class="donate-button">Donate Now</a>
+    <section class="subbrands">
+      <div class="subbrand-item">
+        <img src="img/Screenshot 2025-09-07 183812.png" alt="The Spring Logo">
+        <span>The Spring</span>
+      </div>
+      <div class="subbrand-item">
+        <img src="img/Screenshot 2025-09-07 183821.png" alt="The Well Logo">
+        <span>The Well</span>
+      </div>
+      <div class="subbrand-item">
+        <img src="img/Screenshot 2025-09-07 183843.png" alt="The Pool Logo">
+        <span>The Pool</span>
+      </div>
     </section>
+  </main>
 </body>
 </html>
